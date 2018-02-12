@@ -48,4 +48,34 @@ print(math.e)
 
 # 3. Some Builtin Functions
 print('Type conversion function')
-print(bool(0))
+print(bool(0))      # 0 & '' & () & [] falsey
+print(float(24))    
+print(int(2.8))
+
+print('Add some basic math functions')
+print(abs(-5))
+print(max(2,3))
+print(min(2,3))
+print(pow(2,3))
+print(round(2.345,1))   # Round with the given number of digits
+ 
+
+# 4. Some Builtin Operators
+print(-7 // 4)    # // truncating to the next smallest int
+print(5 % 9)      # modulus
+print(1 == 2)     # diffent from =
+print(1 != 2)     # not equal
+x = 2
+x += 1            # x = x + 1
+print(x)
+x %= 10           # x = x % 10
+print(x)
+
+# 5. Types Affect Semantics
+print(3 *2)
+print(3 * 'abc')
+print(3 +2)
+print('abc' + 'def')
+print(3 + 'def')    # Error
+'fewf' + 'efw'
+
