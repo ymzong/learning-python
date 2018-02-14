@@ -155,7 +155,7 @@ print(yes() or crash())     # Worked, True!
 
 def isPositive(n):
     result = (n > 0)
-    print("isPositive(",n,") =", result)
+    print("isPositive(",n,") =", result)    # Use "" not ''
     return result
 def isEven(n):
     result = (n % 2 == 0)
