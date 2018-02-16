@@ -19,3 +19,14 @@ def isPositive(x):
 print(isPositive(5))
 print(isPositive(-5))
 print(isPositive(0))
+
+# Return ends the function immediately
+def isPositive(x):
+    print('Hello!')         # Runs
+    return (x > 0)
+    print('Goodbye!')       # Doesn't run ("dead code")
+    
+print(isPositive(5))        # Prints Hello! then True
+
+# No return statement--> return None
+# 
