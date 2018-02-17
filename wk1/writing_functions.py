@@ -90,5 +90,64 @@ def onesDigit(n):
 def largerOnesDigit(x,y):
     return max(onesDigit(x),onesDigit(y))
     
-print(largerOnesDigit(134,672))
-print(largerOnesDigit(132,674))
+print(largerOnesDigit(134,672))     # 4
+print(largerOnesDigit(132,674))     # still 4
+
+
+# 7. Test Functions
+# a broken test function
+def onesDigit(n):
+    return n % 10
+    
+def testOnesDigit():
+    print('Testing onesDigit()...', end='')
+    assert(onesDigit(5) == 5)
+    assert(onesDigit(123) == 3)
+    assert(onesDigit(100) == 0)
+    assert(onesDigit(999) == 9)
+    print('Passed!')
+    
+testOnesDigit()         # Passed!--> test function did not work
+
+# A better version
+def onesDigit(n):
+    return n % 10
+    
+# def testOnesDigit():
+#    print('Testing onesDigit()...', end='')
+#    assert(onesDigit(5) == 5)
+#    assert(onesDigit(123) == 3)
+#    assert(onesDigit(100) == 0)
+#    assert(onesDigit(999) == 9)
+#    assert(onesDigit(-123) == 3)    # This line added
+#    print('Passed!')
+    
+# testOnesDigit()         # Crashed! worked!
+
+
+# 8. Local Variable Scope
+def f(x):
+    print('In f, x =', x)           # In f, x = 4
+    x += 5                          # In f, x = 6
+    return x                        # 20
+    
+def g(x):
+    return f(x * 2) + f(x * 3)
+    
+print(g(2))
+
+# Another example
+def f(x):
+    print('In f, x =', x)           # In f, x = 1
+    x += 7                          # In f, x = 10
+    return round(x / 3)             # In f, x = 60 
+    # round = rounding; int() = the next smallest int
+def g(x):
+    x *= 10
+    return 2 * f(x)
+
+def h(x):
+    x += 3
+    return f(x+4) + g(x)            
+    
+print(h(f(1)))                      # 52
