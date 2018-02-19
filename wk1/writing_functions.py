@@ -150,4 +150,33 @@ def h(x):
     x += 3
     return f(x+4) + g(x)            
     
-print(h(f(1)))                      # 52
+print(h(f(1)))                      # 50
+
+
+# 9. Global Variable Scope
+# In general should avoid using global variables.
+# Still understand how they work, since others may use them
+# There may also be some very few occasions they should be used too!
+
+g = 100
+
+def f(x):
+    return x + g
+
+print(f(5)) # 105
+print(f(6)) # 106
+print(g)    # 100
+
+# Another Example:
+g = 100
+
+def f(x):
+    # If we modify a global variable, we must declare it as global.
+    # Otherwise, Python will assume it is a local variable.
+    global g
+    g += 1
+    return x + g
+
+print(f(5)) # 106
+print(f(6)) # 108
+print(g)    # 102
