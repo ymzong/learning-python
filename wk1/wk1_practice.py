@@ -72,10 +72,10 @@ def isEvenPositiveInt(x):
     return result
         
 def nearestBusStop(street):
-    if street == 0 or street % 8 > 4:
-        return roundHalfUp(street / 8) * 8
+    if street % 8 > 4:
+        return math.ceil(street / 8) * 8
     else:
-        return (roundHalfUp(street / 8) - 1) * 8
+        return math.floor(street / 8) * 8
 
 def lineIntersection(m1, b1, m2, b2):
     if m1 == m2:
