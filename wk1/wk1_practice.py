@@ -29,9 +29,9 @@ def distance(x1, y1, x2, y2):
 #################################################
 
 def isFactor(f, n):
-    if (n == 0):
+    if n == 0:
         return True
-    elif (f == 0):
+    elif f == 0:
         return False
     else:
         return n % f == 0
@@ -40,13 +40,13 @@ def isMultiple(m, n):
     return isFactor(n, m)
 
 def isLegalTriangle(s1,s2,s3):
-    if ((s1 > 0), (s2 > 0) and (s3 > 0)):
-        return max(s1,s2,s3) < min((s1 + s2),(s2 + s3),(s1 + s3))
+    if (s1 > 0) and (s2 > 0) and (s3 > 0):
+        return max(s1, s2, s3) < min(s1 + s2, s2 + s3, s1 + s3)
     else:
-         return False
+        return False
  
 def triangleArea(s1, s2, s3):
-    if isLegalTriangle(s1,s2,s3) == True:
+    if isLegalTriangle(s1, s2, s3):
         s = (s1 + s2 + s3) / 2
         return (s * (s - s1) * (s - s2) * (s - s3)) ** 0.5
     else:
@@ -78,7 +78,7 @@ def nearestBusStop(street):
         return math.floor(street / 8) * 8
 
 def lineIntersection(m1, b1, m2, b2):
-    if m1 == m2:
+    if almostEqual(m1, m2):
         return None
     else:
         x = (b2 - b1) / (m1 - m2)
@@ -88,7 +88,7 @@ def threeLinesArea(m1, b1, m2, b2, m3, b3):
     x1 = lineIntersection(m1, b1, m2, b2)
     x2 = lineIntersection(m2, b2, m3, b3)
     x3 = lineIntersection(m1, b1, m3, b3)
-    if (x1, x2 or x3) == None:
+    if x1 == None or x2 == None or x3 == None:  # Alternatively: None in (x1, x2, x3)
         return 0
     else:
         y1 = m1 * x1 + b1
